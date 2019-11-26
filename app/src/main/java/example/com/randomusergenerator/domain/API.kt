@@ -11,10 +11,10 @@ interface API {
         const val BASE_URL = "https://randomuser.me/api/"
     }
 
-    @GET("")
+    @GET(".")
     fun getRandomUsers(
         @Query("page") page: Int ,
         @Query("results") results: Int,
-        @Query("inc") inc: String = "name,location,email,dob,phone,picture"
+        @Query("inc") inc: String = "gender,name,location,email,dob,phone,picture"
     ): Call<RandomAPIResponse>
 }

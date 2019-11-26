@@ -6,12 +6,14 @@ data class RandomAPIResponse(
     val results: List<Response>)
 
 data class Response(
+    val gender: String,
     val name: Name,
     val location: Location,
     val email: String,
     @SerializedName("dob")
     val dateOfBirthday: DOB,
-    val phone: String
+    val phone: String,
+    val picture: Picture
 )
 
 data class Name(
@@ -27,6 +29,12 @@ data class Location(
 data class DOB(
     val date: String,
     val age: Int
+)
+
+data class Picture(
+    val large: String,
+    val medium: String,
+    val thumbnail: String
 )
 
 
