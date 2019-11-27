@@ -1,12 +1,13 @@
 package example.com.randomusergenerator.ui.adapter
 
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 
-abstract class EndlessRecyclerViewScrollListener(internal val layoutManager: RecyclerView.LayoutManager)
+abstract class EndlessRecyclerViewScrollListener(layoutManager: RecyclerView.LayoutManager)
     : RecyclerView.OnScrollListener() {
     // The minimum amount of items to have below your current scroll position
     // before loading more.
@@ -19,10 +20,18 @@ abstract class EndlessRecyclerViewScrollListener(internal val layoutManager: Rec
     private var loading = true
     // Sets the starting page index
     private var startingPageIndex = 1
+    private var layoutManager: RecyclerView.LayoutManager
 
 
     init {
+        this.layoutManager = layoutManager
+        replaceLayoutManager(layoutManager)
+    }
+
+    fun replaceLayoutManager(layoutManager: RecyclerView.LayoutManager){
+        this.layoutManager = layoutManager
         when (layoutManager) {
+            is LinearLayoutManager -> visibleThreshold = 5
             is GridLayoutManager -> visibleThreshold *= layoutManager.spanCount
             is StaggeredGridLayoutManager -> visibleThreshold *= layoutManager.spanCount
         }
@@ -46,14 +55,16 @@ abstract class EndlessRecyclerViewScrollListener(internal val layoutManager: Rec
         var lastVisibleItemPosition = 0
         val totalItemCount = layoutManager.itemCount
 
-        when (layoutManager) {
-            is LinearLayoutManager -> lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
+        when (val manager = layoutManager) {
+            is LinearLayoutManager -> lastVisibleItemPosition = manager.findLastVisibleItemPosition()
             is StaggeredGridLayoutManager -> {
-                val lastVisibleItemPositions = layoutManager.findLastVisibleItemPositions(null)
+                val lastVisibleItemPositions = manager.findLastVisibleItemPositions(null)
                 // get maximum element within the list
                 lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions)
             }
         }
+        Log.i("CHECK", "$totalItemCount $previousTotalItemCount $currentPage $lastVisibleItemPosition $visibleThreshold")
+
 
         // If the total item count is zero and the previous isn't, assume the
         // list is invalidated and should be reset back to initial state

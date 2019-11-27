@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RandomUserGenerator</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="date_of_birthday">Date of Birthday</string>
+    <string name="location">Location</string>
+    <string name="call_permission_denied">Please, grant call permission to be able to make calls</string>
+    <string name="no_phone_app">There is no phone app on this device!</string>
 </resources>

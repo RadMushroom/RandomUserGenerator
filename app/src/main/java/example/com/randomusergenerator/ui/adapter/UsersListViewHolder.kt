@@ -20,8 +20,7 @@ class UsersListViewHolder(view: View, itemClickListener: OnItemPositionClickList
                     .load(model.thumbnail)
                     .apply(RequestOptions.circleCropTransform())
                     .into(thumbnailImage)
-                firstNameText.text = model.firstName
-                secondNameText.text = model.secondName
+                nameText.text = "${model.firstName} ${model.secondName}"
                 countryText.text = model.country
             }
         }

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.UserDetailsActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.UserDetailsActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/userImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/ic_launcher" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userImage"
+            tools:text="John Doe" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/genderAndAgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/userNameText"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Male, 25 years old"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phoneTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintTop_toBottomOf="@id/genderAndAgeText"
+            android:text="@string/phone"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phoneText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/phoneTitleText"
+            app:layout_constraintTop_toBottomOf="@id/phoneTitleText"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            tools:text="+380123456789" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emailTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintTop_toBottomOf="@id/phoneText"
+            android:text="@string/email"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/emailTitleText"
+            app:layout_constraintTop_toBottomOf="@id/emailTitleText"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            tools:text="example@com" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dobTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintTop_toBottomOf="@id/emailText"
+            android:text="@string/date_of_birthday"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dobText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/dobTitleText"
+            app:layout_constraintTop_toBottomOf="@id/dobTitleText"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            tools:text="1990-12-11" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/locationTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintTop_toBottomOf="@id/dobText"
+            android:text="@string/location"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/locationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/locationTitleText"
+            app:layout_constraintTop_toBottomOf="@id/locationTitleText"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            tools:text="Kyiv, Ukraine" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+

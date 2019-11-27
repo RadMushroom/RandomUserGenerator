@@ -1,5 +1,9 @@
 package example.com.randomusergenerator.domain
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class RandomUser(
     val gender: String,
     val firstName: String,
@@ -12,4 +16,4 @@ data class RandomUser(
     val age: Int,
     val thumbnail: String,
     val image: String
-)
+) : Parcelable
